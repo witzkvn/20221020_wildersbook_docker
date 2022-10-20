@@ -1,0 +1,90 @@
+.card {
+  padding: 20px;
+  border: 1px solid #c9c9c9;
+  border-radius: 7px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+.card > img:first-child {
+  border-radius: 7px 7px 0 0;
+  margin-bottom: 20px;
+  max-width: 100%;
+  height: auto;
+}
+
+.card h3,
+.card h4 {
+  color: #f76c6c;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+}
+
+.card h3 em {
+  padding: 0.25em;
+  background-color: #eddbff;
+  border-radius: 4px;
+}
+
+.card p,
+.card ul {
+  color: #757575;
+  line-height: 1.5;
+}
+
+.skills {
+  margin: 0;
+  margin-bottom: 2rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.city {
+  font-weight: bold;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.popup {
+  position: relative;
+  padding: 2rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.actionButtonsWrapper {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.deleteBtn {
+  margin-left: 0.5rem;
+}
+
+.profileCardButtonsWrapper {
+  color: #fff;
+  margin-top: auto;
+}

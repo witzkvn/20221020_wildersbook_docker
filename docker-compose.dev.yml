@@ -1,0 +1,26 @@
+services:
+  back:
+    build: ./back
+    ports:
+      - 5000:5000
+    command: npm run dev
+    volumes:
+      - ./back/dist/:/app/dist/
+      - ./back/src/:/app/src/
+      - ./back/wildersdb.sqlite:/app/wildersdb.sqlite
+    healthcheck:
+      test: "curl --request POST \ --header 'content-type: application/json' \ --url http://localhost:5000/ \ --data '{\"query\":\"query { __typename }\"}'"
+      interval: 2s
+      timeout: 10s
+      retries: 5
+      start_period: 2s
+  front:
+    build: ./front
+    ports:
+      - 8080:3000
+      - 3000:3000
+    depends_on:
+      "back":
+        condition: service_healthy
+    volumes:
+      - ./front/src/:/app/src/

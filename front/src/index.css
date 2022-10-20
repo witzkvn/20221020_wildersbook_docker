@@ -1,0 +1,176 @@
+body {
+  font-family: sans-serif;
+  color: #222;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.35em;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 15px;
+}
+
+p {
+  margin: 0 0 1.15em;
+}
+
+a,
+a:active,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+  animation: color 0.1s ease;
+}
+
+.container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 24px;
+}
+
+.section {
+  margin: 2rem 0;
+}
+
+header {
+  background-color: #f76c6c;
+  color: #fff;
+}
+
+header nav a {
+  padding: 1rem 3rem;
+  background-color: #ff8f8f;
+  border-radius: 3px;
+  animation: all 0.1s ease;
+}
+
+header nav a:last-of-type {
+  margin-left: 2rem;
+}
+
+header nav a:hover {
+  background-color: #ffbebe;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(3, 32%);
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.section-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  border-bottom: 1px solid #121212;
+}
+
+.button {
+  text-decoration: none;
+  background-color: #f76c6c;
+  color: #fff;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  font-size: inherit;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+.button:active {
+  transform: translateY(1px);
+}
+
+.button-right {
+  margin-left: auto;
+  display: block;
+}
+
+.cancelBtn {
+  background-color: #d3d3d3;
+  color: #121212;
+}
+
+.whiteBtn {
+  background-color: #ffffff;
+  color: #121212;
+  border: 1px solid #d3d3d3;
+}
+
+.button-wrapper-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-wrapper-center {
+  display: flex;
+  justify-content: center;
+}
+
+.button-wrapper-center button:not(:first-of-type),
+.button-wrapper-right button:not(:first-of-type) {
+  margin-left: 1rem;
+}
+
+.error {
+  color: rgb(255, 37, 37);
+}
+
+.formWrapper {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+
+  max-width: 400px;
+}
+
+.form {
+  width: 100%;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.input {
+  margin-bottom: 1rem;
+  width: 100%;
+  border-radius: 3px;
+  padding: 0.4rem;
+  border: 1px solid #dadada;
+  font-family: inherit;
+}
+
+.textarea {
+  resize: none;
+  min-height: 100px;
+}
