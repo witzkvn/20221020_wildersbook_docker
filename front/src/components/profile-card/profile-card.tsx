@@ -21,7 +21,7 @@ const ProfileCard = ({
 }: IProfileCard) => {
   const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
   const [wilderNameToDelete, setWilderNameToDelete] = useState("");
-  const [deleteWilder, { data, loading, error }] = useMutation(DELETE_WILDER);
+  const [deleteWilder] = useMutation(DELETE_WILDER);
   let navigate = useNavigate();
 
   const handleSelectDelete = () => {

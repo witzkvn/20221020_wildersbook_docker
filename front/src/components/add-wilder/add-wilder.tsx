@@ -32,14 +32,8 @@ const AddWilder = ({ wilderToEdit, setWilderToEdit }: IAddWilderForm) => {
     setValue,
     formState: { errors },
   } = useForm<WilderInputs>();
-  const [
-    updateWilder,
-    { data: updateData, loading: updateLoading, error: updateError },
-  ] = useMutation(UPDATE_WILDER);
-  const [
-    createWilder,
-    { data: createData, loading: createLoading, error: createError },
-  ] = useMutation(CREATE_WILDER);
+  const [updateWilder, { error: updateError }] = useMutation(UPDATE_WILDER);
+  const [createWilder, { error: createError }] = useMutation(CREATE_WILDER);
   const {
     loading: skillsLoading,
     error: skillsError,

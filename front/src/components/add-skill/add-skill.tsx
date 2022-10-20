@@ -16,7 +16,7 @@ const AddSkill = () => {
     formState: { errors },
   } = useForm<SkillInputs>();
   let navigate = useNavigate();
-  const [addSkill, { data, loading, error }] = useMutation(ADD_SKILL);
+  const [addSkill, { error }] = useMutation(ADD_SKILL);
 
   const onSubmit: SubmitHandler<SkillInputs> = async (data) => {
     await addSkill({

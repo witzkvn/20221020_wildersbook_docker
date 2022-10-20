@@ -1,4 +1,3 @@
-import React from "react";
 import IWildersGrid from "../../interfaces/wilder/IWildersGrid";
 import ProfileCard from "../profile-card/profile-card";
 

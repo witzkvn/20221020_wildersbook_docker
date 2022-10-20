@@ -1,7 +1,6 @@
 import "reflect-metadata";
-import { ApolloServer, gql } from "apollo-server";
+import { ApolloServer } from "apollo-server";
 import dataSource from "./utils";
-import { Wilder } from "./entity/Wilder";
 import { buildSchema } from "type-graphql";
 import { WilderResolver } from "./resolvers/wilderResolver";
 import { SkillResolver } from "./resolvers/skillResolver";
