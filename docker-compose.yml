@@ -1,21 +1,49 @@
 services:
+  db:
+    image: postgres
+    restart: always
+    user: postgres
+    volumes:
+      - ./contData:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: example
+      PGDATA: /var/lib/postgresql/data/pgdata
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      db:
+        condition: service_healthy
+
   back:
     build: ./back
     ports:
       - 5000:5000
     command: [sh, -cx, "npm run build && npm run start"]
+    depends_on:
+      db:
+        condition: service_healthy
     healthcheck:
-      test: "curl --request POST \ --header 'content-type: application/json' \ --url http://localhost:5000/ \ --data '{\"query\":\"query { __typename }\"}'"
+      test: 'curl --fail --request POST --header ''content-type: application/json'' --url ''http://localhost:5000'' --data ''{"query":"query { __typename }"}'' || exit 1'
       interval: 2s
       timeout: 10s
       retries: 5
       start_period: 2s
+
   front:
     build: ./front
     ports:
       - 3000:3000
     depends_on:
-      "back":
+      back:
         condition: service_healthy
     command:
       [
@@ -23,13 +51,3 @@ services:
         -cx,
         "npm run build --production && npm install -g serve && serve -s build",
       ]
-  db:
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: example
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
