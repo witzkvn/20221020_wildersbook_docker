@@ -5,7 +5,6 @@ services:
       - 5000:5000
     command: npm run dev
     volumes:
-      - ./back/dist/:/app/dist/
       - ./back/src/:/app/src/
       - ./back/wildersdb.sqlite:/app/wildersdb.sqlite
     healthcheck:
