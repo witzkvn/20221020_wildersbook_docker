@@ -6,7 +6,6 @@ services:
     command: npm run dev
     volumes:
       - ./back/src/:/app/src/
-      - ./back/wildersdb.sqlite:/app/wildersdb.sqlite
     healthcheck:
       test: "curl --request POST \ --header 'content-type: application/json' \ --url http://localhost:5000/ \ --data '{\"query\":\"query { __typename }\"}'"
       interval: 2s
@@ -22,3 +21,13 @@ services:
         condition: service_healthy
     volumes:
       - ./front/src/:/app/src/
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

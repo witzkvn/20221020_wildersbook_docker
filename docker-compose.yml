@@ -3,8 +3,6 @@ services:
     build: ./back
     ports:
       - 5000:5000
-    volumes:
-      - ./back/wildersdb.sqlite:/app/wildersdb.sqlite
     command: [sh, -cx, "npm run build && npm run start"]
     healthcheck:
       test: "curl --request POST \ --header 'content-type: application/json' \ --url http://localhost:5000/ \ --data '{\"query\":\"query { __typename }\"}'"
@@ -25,3 +23,13 @@ services:
         -cx,
         "npm run build --production && npm install -g serve && serve -s build",
       ]
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
